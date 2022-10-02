@@ -1,0 +1,20 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          /* To use latest Node modules */
+          "esmodules": true
+        }
+      }
+    ],
+    [
+      "@babel/preset-react",
+      {
+        /* Defining the JSX runtime to automatic is needed, since React 18 has adopted the new JSX Transform functionality: https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html. */
+        "runtime": "automatic"
+      }
+    ]
+  ]
+}

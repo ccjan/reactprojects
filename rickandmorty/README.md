@@ -49,3 +49,36 @@ The main.js contains project code i.e. our bundle
 node dist/main.js
 
 
+
+
+
+
+Configuring Webpack to work with React
+
+Packages for React (Dependencies to be installed):
+- react, generic core package for react
+- react-dom, entry point to browsers DOM + rendering of react
+
+npm install react react-dom
+
+Correct compilers (To compile JS to readable for for every browser -- Babel)
+
+npm install --save-dev @babel/core babel-loader @babel/preset-env @babel/preset-react
+
+- babel-loader, helper so that babel can run with webpack and the two preset packages
+- @babel/preset-env, determines which plugin will be used to compile JS into readable format for browser
+- @babel/preset-react, determines which plugin will be used to compile React into readable format for browser
+
+Now packages for React and correct compilers have been installed
+
+
+Now make them work with Webpack so they are used when running our application
+-- create configuration files for Webpack and Babel
+
+babel.config.json
+webpack.config.js
+
+Now Webpack and Babel have been set up to run React from command line
+
+
+
