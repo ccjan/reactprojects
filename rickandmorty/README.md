@@ -235,3 +235,92 @@ Add a header to the index.js
 
 
 
+Adding ESLint
+
+npm install --save-dev eslint eslint-webpack-plugin eslint-plugin-react
+
+eslint
+  the core package and helps us identify any potentially problematic patterns in our JavaScript code
+
+eslint-webpack-plugin
+  a package that is used by Webpack to run ESLint every time we update our code
+
+eslint-plugin-react
+  rules to ESLint for React applications.
+
+
+Configure .eslintrc in project root
+
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "extends": ["eslint:recommended",
+              "plugin:react/recommended"],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
+}
+
+env 
+- sets the actual environment our code will run in and will use es6 functions in it
+
+parserOptions
+- extra configuration for using jsx and modern JavaScript
+
+plugins
+- specify that our code uses react as a framework
+
+extends
+- recommended settings for eslint
+- framework-specific settings for React
+
+rules
+- rule to disable the notification about React not being imported
+  as this is no longer required in React 18.
+
+
+NOTE
+
+We can run the eslint --init command to create custom settings, but using the preceding settings is recommended so that we ensure the stability of our React code.
+
+If we look at our command line or browser, we will see no errors. However, we have to add the eslint-webpack-plugin package to the Webpack configuration. In the webpack.config.js file, you need to import this package and add it as a plugin to the configuration:
+
+// To create custom settings
+eslint --init
+
+Add eslint-webpack-plugin package to webpack configuration
+
+webpack.config.js:
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
++ const ESLintPlugin = require('eslint-webpack-plugin');
+  module.exports = {
+    // ...
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './public/index.html',
+        filename: './index.html',
+      }),
++     new ESLintPlugin(),
+    ],
+  };
+
+-- Basic React application using
+- React
+- ReactDOM
+- Webpack
+- Babel
+- ESLint
+- Bootstrap
+
+Further reading
+  Thinking in React: https://reactjs.org/docs/thinking-in-react.html
+  Bootstrap: https://getbootstrap.com/docs/4.3/getting-started/introduction/
+  ESLint: https://eslint.org/docs/user-guide/getting-started
