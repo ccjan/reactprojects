@@ -16,6 +16,7 @@ function List() {
     fetchData();
   }, [characters.length]);
 
+  // The bootstrap setting was already set earlier
   return (
     <div>
       <h2>Characters</h2>

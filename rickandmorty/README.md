@@ -188,3 +188,50 @@ Prepare Character component to receive the information about Rick and Mortyt
 
 
 
+
+Adding styling (with Bootstrap)
+
+npm install --save-dev bootstrap
+
+Add to src/index.js (entry point) for applying to all components in hierarchy
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+Add appropriate loaders to have Webpack compile CSS
+
+npm install --save-dev css-loader style-loader
+
+Add these packages as a rule to the Webpack configuration
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+
+Order is important - Webpack reads settings from right to left
+css-loader - handles the compilation of the CSS file (compiled before it is attached to DOM)
+style-loader - adds the compiled CSS files to the React DOM
+
+-- Now already small styling changes from the default Bootstrap stylesheet
+
+Now style index.js first as the container for the entire application
+-     <div>
++     <div className='container'>
+
+Now style List component with a grid to display Characters components
+-- Wrap the map function in a div element to treat it as a row container for Bootstrap
++     <div className='row'>
+...
++     </div>
+
+The code for the Character component must also be altered to add styling using Bootstrap
+-- Add column and styling
+
+Add a header to the index.js
+-       <h1>Rick and Morty</h1>
++       <nav className='navbar sticky-top navbar-light bg-dark'>
++         <h1 className='navbar-brand text-light'> Rick and Morty</h1>
++       </nav>
+
+
+
+
+
