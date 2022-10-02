@@ -120,3 +120,25 @@ npm run build
 
 
 
+
+Creating a development server - to not rerun "npm start" -- webpack-dev-server
+-- Adds the option to to force wevpack to restart every time we make changes to our project files and manages our application files in memory instead of by building the dist directory.
+
+npm install --save-dev webpack-dev-server
+
+Edit dev to user webpack-dev-server instead of Webpack
+package.json:
+...
+    "scripts": {
+-       "start": "webpack –mode development",
++       "start": "webpack serve –mode development",
+
+npm start
+-- http://localhost:8080/
+
+Now the basic development environment for our React app is ready
+
+
+
+
+
