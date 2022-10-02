@@ -161,3 +161,30 @@ src/components/Character.js
 
 
 
+
+Retrieving data
+
+Rick and Morty REST API (https://rickandmortyapi.com/documentation/#rest)
+
+To store the information, we'll be using the built-in state management (https://reactjs.org/docs/state-and-lifecycle.html) in React. Anything stored in the state can be passed down to the low-level components, after which they are called props. A simple example of using state in React is by using the useState Hook, which can be used to store and update variables. Every time these variables change using the update method that is returned by the useState Hook, our component will re-render.
+
+https://reactjs.org/docs/hooks-intro.html
+
+The base URL for the API is https://rickandmortyapi.com/api
+- All GET requests
+- https
+- /character endpoint
+- id, name, origin, image
+
+
+Prepare Character component to receive the information about Rick and Mortyt
+-- Handle props in Character component
+-- Add characters state to List component 
+-- Add useEffect hook to List component to fetch data
+-- Add loading indicator
+-- Add outputting of characters to List component
+
+
+
+
+
