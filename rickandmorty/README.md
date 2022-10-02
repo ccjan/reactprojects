@@ -142,3 +142,22 @@ Now the basic development environment for our React app is ready
 
 
 
+Structuring a project
+
+dist - output from Webpacks bundled version of app
+src - source code
+public - html code
+node_module - library dependencies
+
+
+Creating new components
+
+src/components/List.js
++ Add to index.js
+
+src/components/Character.js
++ Add to List.js
+
+
+
+
