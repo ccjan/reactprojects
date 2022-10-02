@@ -82,3 +82,41 @@ Now Webpack and Babel have been set up to run React from command line
 
 
 
+
+
+Rendering a React project
+
+1. Create React component in src/index.js
+2. Create public/index.html with Element referenced to from src/index.js
+
+4. Extend Webpack so that it adds minified bundle code to the body tags as scripts when running
+
+npm install --save-dev html-webpack-plugin
+
+webpack.config.js:
+
++ const HtmlWebpackPlugin = require('html-webpack-plugin');
+...
++   plugins: [
++     new HtmlWebpackPlugin({
++       template: './public/index.html',
++       filename: './index.html',
++     }),
++   ],
+};
+
+npm start
+- webpack starts in development mode
+- adds index.html into dist directory
+  - scripts tag have been added and directs us to our application bundle dist/main.js
+
+Open in browser or run "open dist/index.html"
+-- result directly in browser
+
+npm run build
+-- same thing but code minified
+
+
+
+
+
